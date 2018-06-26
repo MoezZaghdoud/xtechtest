@@ -56,3 +56,27 @@
 			}
 			document.write("le nombre est:"+nb_parts);
 		}
+	function callback()
+		{
+			alert("cb executed");
+			f4(callback());
+		}
+	function f4(cb)
+		{
+			var startTime = new Date().getTime();
+			var elapsedTime = 0;
+			document.write("f4");
+			elapsedTime = new Date().getTime() - startTime;
+			if (elapsedTime < 300)
+			{
+				setTimeOut(f4(cb), 300);
+				document.write(elapsedTime);
+			}
+
+			else
+			{
+				callback();
+				document.write(elapsedTime);
+			}
+		}
+		
